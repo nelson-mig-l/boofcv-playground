@@ -61,6 +61,7 @@ public class Main {
 
     private Planar<GrayU8> convertPanoramaToCube() {
         final Planar<GrayU8> panorama = load(params.input.getAbsolutePath());
+
         final Planar<GrayU8> cube = panorama.createNew(panorama.width, panorama.height * 3 / 2);
         new PanoramaToCube().converter(panorama, cube);
         return cube;
@@ -69,7 +70,16 @@ public class Main {
     private Planar<GrayU8> load(final String name) {
         final BufferedImage image = UtilImageIO.loadImage(name);
         Preconditions.checkNotNull(image, name + " didn't load properly");
-        return ConvertBufferedImage.convertFrom(image, true, ImageType.pl(3, GrayU8.class));
+        final Planar<GrayU8> panorama = ConvertBufferedImage.convertFrom(image, true, ImageType.pl(3, GrayU8.class));
+        if (AspectRatio.hasCorrectAspectRation(panorama)) {
+            return panorama;
+        } else {
+            LOG.warning("Incorrect Aspect Ratio");
+
+            final Planar<GrayU8> corrected = AspectRatio.correctAspectRatio(panorama);
+            save(corrected, "D:\\repository\\java\\panocube\\boofcv-playground\\src\\main\\resources\\test\\corrected.png");
+            return corrected;
+        }
     }
 
     private void save(final Planar<GrayU8> planar, final String name) {
