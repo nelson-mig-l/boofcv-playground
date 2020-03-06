@@ -17,7 +17,7 @@ public class SplitChannels {
     private static ListDisplayPanel panel = new ListDisplayPanel();
 
     public static void main(String[] args) {
-        BufferedImage buffered = UtilImageIO.loadImage("C:\\repo\\tomtom\\tools\\azure-blob-demo\\src\\main\\resources\\signs\\79px-Znak_F-8.svg.png");
+        BufferedImage buffered = UtilImageIO.loadImage("D:\\repository\\java\\panocube\\boofcv-playground\\src\\main\\resources\\marble.jpg");
         Planar<GrayU8> image = new Planar<GrayU8>(GrayU8.class, buffered.getWidth(), buffered.getHeight(), 3);
         ConvertBufferedImage.convertFromPlanar(buffered, image, true, GrayU8.class);
         //GrayU8 gray = ConvertBufferedImage.convertFrom(buffered, (GrayU8) null);

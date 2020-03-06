@@ -3,9 +3,12 @@ package nelson.boofcv.panocube;
 import com.google.common.collect.Range;
 import georegression.struct.point.Point3D_F64;
 
-class FaceUtils {
+/**
+ *
+ */
+public class FaceUtils {
 
-    static String getName(final Face face) {
+    public static String getName(final Face face) {
         switch (face) {
             case Back:
                 return "nz";

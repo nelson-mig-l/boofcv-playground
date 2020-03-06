@@ -63,7 +63,7 @@ public class Main {
         final Planar<GrayU8> panorama = load(params.input.getAbsolutePath());
 
         final Planar<GrayU8> cube = panorama.createNew(panorama.width, panorama.height * 3 / 2);
-        new PanoramaToCube().converter(panorama, cube);
+        new ConvertUtils().convert(panorama, cube);
         return cube;
     }
 

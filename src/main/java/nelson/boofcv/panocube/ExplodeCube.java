@@ -6,6 +6,9 @@ import boofcv.struct.image.Planar;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 class ExplodeCube {
 
     Map<Face, Planar<GrayU8>> explode(final Planar<GrayU8> input) {

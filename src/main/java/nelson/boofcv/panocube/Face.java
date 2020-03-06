@@ -3,7 +3,10 @@ package nelson.boofcv.panocube;
 import java.util.HashMap;
 import java.util.Map;
 
-enum Face {
+/**
+ *
+ */
+public enum Face {
     Back, Left, Front, Right, Top, Bottom;
 
     private static final Map<Integer, Face> lookup = new HashMap<Integer, Face>(6);

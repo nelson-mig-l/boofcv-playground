@@ -5,9 +5,12 @@ import boofcv.struct.image.Planar;
 import com.google.common.collect.Range;
 import georegression.struct.point.Point3D_F64;
 
-class PanoramaToCube {
+/**
+ *
+ */
+class ConvertUtils {
 
-    void converter(final Planar<GrayU8> input, final Planar<GrayU8> output) {
+    static void convert(final Planar<GrayU8> input, final Planar<GrayU8> output) {
         final double edge = input.width / 4;
         for (int i = 0; i < output.width; i++) {
             final Face face = Face.fromIndex((int) (i / edge));
@@ -36,7 +39,7 @@ class PanoramaToCube {
         }
     }
 
-    private int interpolate(final GrayU8 input, final int ui, final int u2, final int vi, final int v2, final double mu, final double nu) {
+    static private int interpolate(final GrayU8 input, final int ui, final int u2, final int vi, final int v2, final double mu, final double nu) {
         final int xi = ui % input.width;
         final int x2 = u2 % input.width;
         final int yi = clamp(vi, 0, input.height - 1);
