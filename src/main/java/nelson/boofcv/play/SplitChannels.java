@@ -29,7 +29,7 @@ public class SplitChannels {
 
         ShowImages.showWindow(panel, "Channels", true);
 
-        //ColorSpace instance = ColorSpace.getInstance(ColorSpace.TYPE_CMYK);
+        ColorSpace instance = ColorSpace.getInstance(ColorSpace.TYPE_CMYK);
         //instance.fromRGB(image.bands)
     }
 }

@@ -6,8 +6,6 @@ import nelson.boofcv.panocube.ConverterFactory;
 import nelson.boofcv.panocube.Face;
 import nelson.boofcv.panocube.FaceUtils;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Map;
 
